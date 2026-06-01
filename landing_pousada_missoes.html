@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pousada das Missões — São Miguel das Missões, RS</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --laranja: #E07B20;
+  --laranja-escuro: #B85F10;
+  --verde: #1A6B2F;
+  --marrom: #5C3A1E;
+  --amarelo: #F5A623;
+  --rosa: #C2185B;
+  --preto: #111111;
+  --branco: #FFFFFF;
+  --creme: #F4F1EC;
+  --cinza: #E2DDD6;
+  --cinza-texto: #777;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--creme); color: var(--preto); overflow-x: hidden; }
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--preto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--laranja), var(--amarelo), var(--verde));
+}
+
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hero-accent {
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224,123,32,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-nav {
+  position: relative;
+  z-index: 10;
+  padding: 24px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--branco);
+  letter-spacing: 2px;
+}
+.nav-logo span { color: var(--laranja); }
+
+.nav-cta {
+  background: var(--laranja);
+  color: var(--branco);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--laranja-escuro); }
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 60px 80px;
+  max-width: 780px;
+}
+
+.hero-eyebrow {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--laranja);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: var(--laranja);
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(56px, 8vw, 100px);
+  color: var(--branco);
+  line-height: 0.95;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+}
+.hero-title .highlight { color: var(--laranja); }
+.hero-title .line2 { display: block; }
+
+.hero-desc {
+  font-size: 17px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+}
+.badge-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--laranja);
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--laranja);
+  color: var(--branco);
+  font-weight: 800;
+  font-size: 15px;
+  padding: 16px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover { background: var(--laranja-escuro); transform: translateY(-2px); }
+
+.btn-secondary {
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 16px 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: var(--branco); }
+
+.hero-stats {
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 28px 60px;
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.stat-item { }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: var(--laranja);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 3px;
+}
+
+/* ─── SECTION HEADERS ─── */
+.section {
+  padding: 80px 60px;
+}
+.section-dark {
+  background: var(--preto);
+}
+.section-light {
+  background: var(--creme);
+}
+.section-mid {
+  background: #1a1209;
+}
+
+.section-header {
+  max-width: 1100px;
+  margin: 0 auto 48px;
+}
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--laranja);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--laranja);
+}
+.section-dark .section-eyebrow,
+.section-mid .section-eyebrow { color: var(--amarelo); }
+.section-dark .section-eyebrow::before,
+.section-mid .section-eyebrow::before { background: var(--amarelo); }
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: 2px;
+  line-height: 1.05;
+  color: var(--preto);
+}
+.section-dark .section-title,
+.section-mid .section-title { color: var(--branco); }
+
+.section-sub {
+  font-size: 15px;
+  color: var(--cinza-texto);
+  margin-top: 10px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.section-dark .section-sub,
+.section-mid .section-sub { color: rgba(255,255,255,0.5); }
+
+/* ─── CARROSSEL ─── */
+.carousel-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.carousel-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.carousel-card {
+  background: var(--branco);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+.section-dark .carousel-card,
+.section-mid .carousel-card {
+  background: #1e1508;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+
+.carousel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+}
+
+/* Card header */
+.card-head {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--cinza);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.section-dark .card-head,
+.section-mid .card-head { border-color: rgba(255,255,255,0.07); }
+
+.card-index {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  line-height: 1;
+  min-width: 42px;
+  color: var(--laranja);
+}
+.card-index.verde { color: var(--verde); }
+.card-index.marrom { color: var(--marrom); }
+.card-index.rosa { color: var(--rosa); }
+.card-index.amarelo { color: var(--amarelo); }
+
+.card-meta { flex: 1; }
+.card-titulo-main {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--preto);
+  line-height: 1.35;
+}
+.section-dark .card-titulo-main,
+.section-mid .card-titulo-main { color: var(--branco); }
+
+.card-tag {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.tag-pousada { background: #FEF3E0; color: #C06010; }
+.tag-namorados { background: #FCE4EC; color: #AD1457; }
+.tag-junina { background: #FFF8E1; color: #F57F17; }
+.tag-historia { background: #E8F4EC; color: #1A6B2F; }
+.tag-agencias { background: #EDE7F6; color: #4527A0; }
+
+/* Slides do carrossel */
+.slides-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.slides-track {
+  display: flex;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide {
+  min-width: 100%;
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 148px;
+}
+
+.slide-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  width: fit-content;
+  margin-bottom: 4px;
+}
+.badge-capa { background: var(--preto); color: var(--branco); }
+.badge-meio { background: var(--verde); color: var(--branco); }
+.badge-cta { background: var(--laranja); color: var(--branco); }
+.badge-meio-rosa { background: var(--rosa); color: var(--branco); }
+.badge-meio-amarelo { background: #B8860B; color: var(--branco); }
+
+.slide-titulo {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--preto);
+  line-height: 1.35;
+}
+.section-dark .slide-titulo,
+.section-mid .slide-titulo { color: #f0e8d8; }
+
+.slide-sub {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cinza-texto);
+  line-height: 1.4;
+}
+.section-dark .slide-sub,
+.section-mid .slide-sub { color: rgba(255,255,255,0.4); }
+
+.slide-texto {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.55;
+  margin-top: 2px;
+}
+.section-dark .slide-texto,
+.section-mid .slide-texto { color: rgba(255,255,255,0.35); }
+
+/* Navegação dos slides */
+.slides-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px 14px;
+  border-top: 1px solid var(--cinza);
+}
+.section-dark .slides-nav,
+.section-mid .slides-nav { border-color: rgba(255,255,255,0.07); }
+
+.nav-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.nav-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--cinza);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.nav-dot.active {
+  background: var(--laranja);
+  width: 16px;
+  border-radius: 3px;
+}
+
+.nav-arrows {
+  display: flex;
+  gap: 6px;
+}
+.nav-arrow {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--cinza);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--cinza-texto);
+  font-size: 13px;
+}
+.nav-arrow:hover {
+  border-color: var(--laranja);
+  color: var(--laranja);
+  background: rgba(224,123,32,0.06);
+}
+.section-dark .nav-arrow,
+.section-mid .nav-arrow {
+  border-color: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.4);
+}
+.section-dark .nav-arrow:hover,
+.section-mid .nav-arrow:hover {
+  border-color: var(--amarelo);
+  color: var(--amarelo);
+}
+
+/* ─── DIFERENCIAIS ─── */
+.diferenciais-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.diferencial-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 28px 22px;
+  transition: border-color 0.2s;
+}
+.diferencial-item:hover { border-color: rgba(224,123,32,0.3); }
+
+.dif-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+  display: block;
+}
+.dif-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: var(--branco);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.dif-texto {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* ─── CTA BANNER ─── */
+.cta-banner {
+  background: var(--laranja);
+  padding: 70px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -40px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.08);
+}
+
+.cta-banner-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.cta-banner-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 60px);
+  color: var(--branco);
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.cta-banner-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+.cta-banner-btn {
+  background: var(--branco);
+  color: var(--laranja);
+  font-weight: 900;
+  font-size: 16px;
+  padding: 18px 44px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.cta-banner-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--preto);
+  padding: 32px 60px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-txt {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.footer-txt span { color: var(--laranja); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1000px) {
+  .carousel-row { grid-template-columns: repeat(2, 1fr); }
+  .diferenciais-grid { grid-template-columns: repeat(2, 1fr); }
+  .section, .hero-content, .hero-nav, .hero-stats, .cta-banner, .footer { padding-left: 32px; padding-right: 32px; }
+}
+@media (max-width: 640px) {
+  .carousel-row { grid-template-columns: 1fr; }
+  .diferenciais-grid { grid-template-columns: 1fr; }
+  .section, .hero-content, .hero-nav, .hero-stats, .cta-banner, .footer { padding-left: 20px; padding-right: 20px; }
+  .hero-stats { gap: 24px; }
+  .hero-ctas { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-accent"></div>
+
+  <nav class="hero-nav">
+    <div class="nav-logo">Pousada das <span>Missões</span></div>
+    <a href="https://wa.me/5555981615722" class="nav-cta" target="_blank">Reservar pelo WhatsApp</a>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">São Miguel das Missões, RS</div>
+    <h1 class="hero-title">
+      A 150m do<br>
+      <span class="highlight">Patrimônio</span><br>
+      <span class="line2">Mundial</span>
+    </h1>
+    <p class="hero-desc">Pousada Temática Jesuítico-Guarani ao lado do único Patrimônio da Humanidade do sul do Brasil. Único lugar onde você vê o pôr do sol e o Espetáculo de Som e Luz no mesmo dia.</p>
+
+    <div class="hero-badges">
+      <div class="badge"><span class="badge-dot"></span> 150m da portaria das Ruínas</div>
+      <div class="badge"><span class="badge-dot"></span> UNESCO desde 1983</div>
+      <div class="badge"><span class="badge-dot"></span> Café da manhã caprichado</div>
+      <div class="badge"><span class="badge-dot"></span> Atendimento direto</div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="https://wa.me/5555981615722" class="btn-primary" target="_blank">
+        📲 Reservar agora
+      </a>
+      <a href="#carrosseis" class="btn-secondary">Ver a pousada</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">150m</div>
+      <div class="stat-label">da portaria das Ruínas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1983</div>
+      <div class="stat-label">Patrimônio UNESCO</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">300+</div>
+      <div class="stat-label">anos de história</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">16mil</div>
+      <div class="stat-label">seguidores no Instagram</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DIFERENCIAIS ─── -->
+<section class="section section-dark">
+  <div class="section-header">
+    <div class="section-eyebrow">Por que a Pousada das Missões</div>
+    <h2 class="section-title">O que só a gente oferece</h2>
+    <p class="section-sub">Localização, estrutura e experiência que nenhuma outra pousada da região tem.</p>
+  </div>
+  <div class="diferenciais-grid">
+    <div class="diferencial-item">
+      <span class="dif-icon">🏛️</span>
+      <div class="dif-titulo">150m do Patrimônio</div>
+      <div class="dif-texto">Só 150 metros separam a nossa porta da entrada do sítio arqueológico. Você vai e volta a pé.</div>
+    </div>
+    <div class="diferencial-item">
+      <span class="dif-icon">🌅</span>
+      <div class="dif-titulo">Pôr do sol + Espetáculo</div>
+      <div class="dif-texto">Único lugar onde você consegue ver o pôr do sol nas Ruínas e o Espetáculo de Som e Luz no mesmo dia.</div>
+    </div>
+    <div class="diferencial-item">
+      <span class="dif-icon">☕</span>
+      <div class="dif-titulo">Café caprichado</div>
+      <div class="dif-texto">Não é buffet de hotel. É o café que alguém preparou pensando em você. Jeito certo de começar o dia nas Missões.</div>
+    </div>
+    <div class="diferencial-item">
+      <span class="dif-icon">🤝</span>
+      <div class="dif-titulo">Atendimento humano</div>
+      <div class="dif-texto">Você fala direto com quem cuida da pousada. Resposta rápida, sem chatbot, sem fila de espera.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CARROSSÉIS: A POUSADA ─── -->
+<section class="section section-light" id="carrosseis">
+  <div class="section-header">
+    <div class="section-eyebrow">Conheça a pousada</div>
+    <h2 class="section-title">Tudo que você precisa saber antes de reservar</h2>
+    <p class="section-sub">Localização, quartos, café, estrutura, atendimento. Clique nas setas para navegar entre as páginas de cada carrossel.</p>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel-row">
+
+      <!-- Card 1: Localização -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"150 metros da portaria das Ruínas.","sub":"Ao lado do único Patrimônio Mundial do sul.","texto":"Não é figura de linguagem. São 150 metros entre a nossa porta e a entrada do sítio arqueológico."},
+        {"badge":"meio","titulo":"Pôr do sol e ainda volta a pé.","sub":"Sem carro, sem táxi, sem correria.","texto":"Você vai pras Ruínas caminhando, fica pro pôr do sol e volta tranquilo. Ninguém te apressando."},
+        {"badge":"meio","titulo":"Espetáculo à noite, cama a 150 metros.","sub":"Termina o show e já tá em casa.","texto":"Sem precisar pegar carro depois do espetáculo. A pousada fica do lado. É essa a diferença de estar bem localizado."},
+        {"badge":"meio","titulo":"De manhã cedo, as Ruínas vazias te esperam.","sub":"150 metros e você está lá antes de todo mundo.","texto":"Quem dorme aqui acorda, toma café e já entra no sítio com o sol baixo e silêncio total."},
+        {"badge":"cta","titulo":"Localização que nenhuma outra pousada tem.","sub":"Reserve pelo WhatsApp.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">01</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">150 metros do Patrimônio Mundial — a localização que define tudo</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Os quartos -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Como é o quarto onde você vai dormir.","sub":"Conforto simples e com cuidado.","texto":"Não é luxo de resort. É o conforto certo pra quem veio descansar e viver as Missões, não ficar no hotel."},
+        {"badge":"meio","titulo":"Quarto arrumado com detalhe.","sub":"Você chega e está tudo pronto.","texto":"Quando você bater na porta, o quarto está organizado com cuidado. A diferença de pousada pra hotel aparece desde o primeiro minuto."},
+        {"badge":"meio","titulo":"Silêncio de interior à noite.","sub":"Sem barulho de rua, sem vizinho de parede fina.","texto":"Depois do espetáculo você volta pra pousada e o silêncio é total. Descanso de verdade."},
+        {"badge":"meio","titulo":"Quarto especial para datas comemorativas.","sub":"Decoração, champanhe, detalhes a pedido.","texto":"Aniversário, Dia dos Namorados, pedido de namoro. A gente prepara o quarto pra tornar a data inesquecível."},
+        {"badge":"cta","titulo":"Quer ver disponibilidade?","sub":"Me chama e reservo pra você.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">02</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Os quartos — conforto, silêncio e detalhe</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Café da manhã -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Não é buffet de hotel.","sub":"É o café que alguém fez pensando em você.","texto":"Nosso café da manhã é simples e caprichado. Cada detalhe preparado com cuidado pra você começar o dia bem."},
+        {"badge":"meio","titulo":"No inverno de junho, o café tem outro sabor.","sub":"Canecão quente, friozinho lá fora.","texto":"Tem algo muito bonito em acordar com frio e descer pra um café quente. Aqui isso acontece todo dia."},
+        {"badge":"meio","titulo":"Sai descansado e bem alimentado.","sub":"Pronto pra um dia cheio nas Ruínas.","texto":"Visitar o Patrimônio Mundial pede disposição. Nosso café garante que você sai pronto pra aproveitar cada canto."},
+        {"badge":"cta","titulo":"O café já está incluso na diária.","sub":"Sem surpresa na hora de pagar.","texto":"Me chama no WhatsApp ou no direct e reserva sua estadia."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">03</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">O café da manhã — o jeito certo de começar o dia nas Missões</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="carousel-row">
+
+      <!-- Card 4: Por que não é hotel -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Pousada não é hotel.","sub":"E aqui isso faz toda a diferença.","texto":"Hotel você é mais um hóspede. Aqui você é recebido. A diferença parece pequena e muda tudo."},
+        {"badge":"meio","titulo":"Você fala com quem cuida do lugar.","sub":"Sem recepcionista robótico.","texto":"Quando você manda mensagem, responde quem realmente conhece cada canto da pousada e da região."},
+        {"badge":"meio","titulo":"Personalização que hotel não tem.","sub":"Quarto decorado, roteiro sugerido, atenção real.","texto":"Quer saber onde almoçar? Como chegar na Dona Alzira? O que não pode deixar de ver? A gente responde tudo."},
+        {"badge":"meio","titulo":"Ambiente de interior, não de corredor de hotel.","sub":"Jardim, silêncio, clima de casa.","texto":"Aqui você sente que chegou num lugar. Não num corredor numerado."},
+        {"badge":"cta","titulo":"Essa é a diferença de escolher a Pousada das Missões.","sub":"Reserve pelo WhatsApp.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">04</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Por que pousada é melhor que hotel nas Missões</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Como reservar -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Reservar é mais simples do que você imagina.","sub":"Sem formulário, sem cartão de crédito antecipado.","texto":"Você manda mensagem, a gente verifica disponibilidade e confirma a reserva direto no WhatsApp."},
+        {"badge":"meio","titulo":"Passo 1: me conta quantos dias e quantas pessoas.","sub":"Com isso eu já consigo te passar as condições.","texto":"Não precisa preencher nada. Só me diz a data, quantos dias e quantas pessoas. Simples assim."},
+        {"badge":"meio","titulo":"Passo 2: a gente confirma disponibilidade.","sub":"Resposta rápida, sem enrolação.","texto":"Verifico o calendário e já te retorno com disponibilidade e valor. Sem esperar dias."},
+        {"badge":"meio","titulo":"Passo 3: reserva confirmada, pode planejar a viagem.","sub":"A gente ainda te manda dicas de roteiro.","texto":"Com a reserva feita, você recebe sugestões de o que ver, onde comer e como aproveitar cada dia."},
+        {"badge":"cta","titulo":"Manda mensagem agora.","sub":"A gente responde rápido.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">05</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Como é fácil reservar — 3 passos pelo WhatsApp</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: O que está incluso -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"O que está incluso na sua diária?","sub":"Sem surpresa na hora do check-out.","texto":"Aqui você sabe exatamente pelo que está pagando antes de chegar."},
+        {"badge":"meio","titulo":"Café da manhã caprichado incluso.","sub":"Todo dia, sem exceção.","texto":"Você acorda, desce e o café está pronto. Incluso na diária, sem taxa extra."},
+        {"badge":"meio","titulo":"Estacionamento no local.","sub":"Seu carro fica aqui.","texto":"Você deixa o carro na pousada e vai pras Ruínas a pé. São 150 metros. Mais fácil impossível."},
+        {"badge":"meio","titulo":"Wi-fi e conforto básico.","sub":"Tudo que você precisa sem o que não precisa.","texto":"Wi-fi, água quente, roupa de cama limpa. O essencial com cuidado."},
+        {"badge":"cta","titulo":"Quer saber o valor da diária?","sub":"Me conta quantos dias e eu te passo tudo.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">06</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">O que está incluso na diária — sem surpresa no check-out</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="carousel-row">
+
+      <!-- Card 7: Estrutura para grupos -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Vem com o grupo todo.","sub":"Estrutura pra receber comitivas.","texto":"A pousada tem capacidade pra grupos. Família grande, grupo de amigos, comitiva organizada. A gente recebe todos."},
+        {"badge":"meio","titulo":"Reserva de múltiplos quartos simplificada.","sub":"Um contato, tudo organizado.","texto":"Você fala com a gente uma vez e a gente cuida de organizar tudo pra cada membro do grupo."},
+        {"badge":"meio","titulo":"Café da manhã pra todo mundo junto.","sub":"Momento de grupo do jeito certo.","texto":"A gente organiza o café pra receber o grupo com tranquilidade. Sem fila, sem pressa."},
+        {"badge":"meio","titulo":"Saída em grupo pras Ruínas.","sub":"150 metros e todo mundo está lá.","texto":"Com a localização da pousada, o grupo inteiro vai pras Ruínas a pé. Sem precisar de van ou transporte."},
+        {"badge":"cta","titulo":"Me conta o tamanho do grupo.","sub":"Verifico disponibilidade e te passo as condições.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">07</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Estrutura para grupos — família, amigos, comitivas</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8: Temática jesuítico-guarani -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"A pousada é temática.","sub":"Jesuítico-Guarani do chão ao teto.","texto":"Não é só um lugar pra dormir. A identidade visual e o ambiente da pousada já são parte da experiência missioneira."},
+        {"badge":"meio","titulo":"Decoração que conta a história.","sub":"Cada detalhe remete às Missões.","texto":"Você entra na pousada e já está no clima. As cores, os elementos decorativos e o ambiente remetem à cultura missioneira."},
+        {"badge":"meio","titulo":"Começa aqui, continua nas Ruínas.","sub":"Imersão desde a chegada.","texto":"A experiência das Missões começa quando você cruza a porta da pousada, não quando você chega no sítio."},
+        {"badge":"cta","titulo":"Quer viver essa experiência?","sub":"A gente te espera.","texto":"Me chama no WhatsApp ou no direct e garante sua estadia."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">08</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Pousada Temática Jesuítico-Guarani — a experiência começa aqui</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9: Perguntas frequentes -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"As dúvidas mais comuns antes de reservar.","sub":"Respondo tudo aqui.","texto":"Quase todo mundo que planeja vir tem as mesmas perguntas. Aqui vão as respostas."},
+        {"badge":"meio","titulo":"Precisa de carro pra chegar?","sub":"Carro é o mais prático. Tem ônibus de Santo Ângelo.","texto":"De carro você tem mais liberdade. Mas tem ônibus de Santo Ângelo até São Miguel. Na cidade, a pousada fica a pé das Ruínas."},
+        {"badge":"meio","titulo":"Tem o que fazer além das Ruínas?","sub":"Sim. Muito mais do que você imagina.","texto":"Museu, benzimento, Fonte Missioneira, Borrario, Espetáculo, região das oficinas. Dá pra ficar 3 dias sem repetir nada."},
+        {"badge":"meio","titulo":"Vale ficar mais de 1 dia?","sub":"Sempre. Com 2 dias você vive as Missões de verdade.","texto":"Com 1 dia você vê as Ruínas. Com 2 dias você vive o pôr do sol, o espetáculo e o benzimento com calma."},
+        {"badge":"cta","titulo":"Ficou com dúvida?","sub":"Me chama no direct ou no WhatsApp.","texto":"Pode perguntar qualquer coisa. Sem compromisso nenhum."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">09</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Perguntas que todo mundo faz antes de vir</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="carousel-row">
+
+      <!-- Card 10: Como é uma diária -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Como é uma diária na Pousada das Missões.","sub":"Do check-in ao check-out.","texto":"Como é chegar, se instalar, dormir e acordar aqui? Uma diária a 150 metros das Ruínas."},
+        {"badge":"meio","titulo":"A chegada.","sub":"Quarto pronto, você recebido pelo nome.","texto":"Quando você chega, o quarto está arrumado com cuidado. Não é hotel. É pousada. A diferença aparece desde o primeiro minuto."},
+        {"badge":"meio","titulo":"A tarde nas Ruínas.","sub":"150 metros e você está no Patrimônio Mundial.","texto":"Deixa a mala, pega a câmera e vai. O sítio arqueológico fica a dois minutos a pé da sua porta."},
+        {"badge":"meio","titulo":"A noite de inverno.","sub":"Silêncio, descanso, frio gostoso.","texto":"Depois do espetáculo você volta pra pousada. Silêncio total. O descanso que viagem boa merece."},
+        {"badge":"cta","titulo":"Reserve e viva isso.","sub":"WhatsApp ou direct.","texto":"Me chama e te passo disponibilidade. Você só precisa chegar."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">10</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Como é uma diária aqui — do check-in à manhã seguinte</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 11: Depoimentos -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Não é o que a gente diz.","sub":"É o que quem veio sentiu.","texto":"Depoimento de hóspede vale mais do que qualquer texto de marketing. Veja o que as pessoas levam das Missões."},
+        {"badge":"meio","titulo":"[Depoimento real 1]","sub":"Nome e cidade do hóspede.","texto":"Inserir frase real de hóspede sobre a experiência nas Missões ou na pousada. Quanto mais específica e emocional, melhor."},
+        {"badge":"meio","titulo":"[Depoimento real 2]","sub":"Nome e cidade.","texto":"Inserir depoimento sobre as Ruínas, o espetáculo ou o benzimento. Priorizar frases com surpresa positiva."},
+        {"badge":"meio","titulo":"[Depoimento real 3]","sub":"Nome e cidade.","texto":"Inserir depoimento sobre o café da manhã, o atendimento ou o silêncio da pousada."},
+        {"badge":"cta","titulo":"A próxima história pode ser a sua.","sub":"Reserve pelo WhatsApp.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">11</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">O que os hóspedes falam depois que vêm</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 12: Passar de dia vs hospedar -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Tem gente que vem de 500km e fica só 2 horas.","sub":"Isso é desperdício de viagem.","texto":"Quem fica hospedado vive a experiência completa. Quem passa vê só a fachada."},
+        {"badge":"meio","titulo":"O pôr do sol sobre as Ruínas.","sub":"Só quem fica vê isso.","texto":"Quem vem de dia e volta no mesmo dia perde o melhor horário das Ruínas."},
+        {"badge":"meio","titulo":"O Espetáculo de Som e Luz à noite.","sub":"Só quem se hospeda vê os dois.","texto":"Pôr do sol de tarde e espetáculo à noite. Dois momentos únicos no mesmo dia."},
+        {"badge":"meio","titulo":"Manhã seguinte sem pressa.","sub":"Dona Alzira, Fonte, Museu.","texto":"Com uma noite na pousada, você acorda e ainda tem um dia inteiro de experiências pela frente."},
+        {"badge":"cta","titulo":"Vale a pena ficar.","sub":"A diferença é grande.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">12</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Passar de dia vs se hospedar — a diferença que muda tudo</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Card 13: Inverno nas Missões (linha separada centralizada) -->
+    <div class="carousel-row" style="grid-template-columns: repeat(3,1fr)">
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"O frio não é motivo pra não vir.","sub":"É motivo pra vir mais.","texto":"Muita gente adia a viagem quando chega o inverno. Erro. Junho é uma das melhores épocas pras Missões."},
+        {"badge":"meio","titulo":"Névoa sobre as Ruínas de manhã.","sub":"Cena que só tem no inverno.","texto":"As manhãs de junho trazem névoa baixa e uma luz que não aparece em nenhuma outra época. As fotos ficam completamente diferentes."},
+        {"badge":"meio","titulo":"Café quente e cobertor.","sub":"O melhor começo de dia com frio.","texto":"Acorda com frio, desce pro café, mãos no canecão quente. No inverno, esse momento vale a viagem por si só."},
+        {"badge":"meio","titulo":"Menos turista, mais experiência.","sub":"Inverno é temporada mais tranquila.","texto":"No inverno as Missões têm menos movimento. Você visita tudo com mais calma e a experiência fica mais autêntica."},
+        {"badge":"cta","titulo":"Inverno: diária especial, experiência maior.","sub":"Me chama no WhatsApp.","texto":"Condição especial de inverno, disponibilidade confirmada e roteiro pronto pra você."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">13</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Missões no inverno — o frio é parte da experiência</div>
+            <span class="card-tag tag-pousada">A pousada</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── CTA INTERMEDIÁRIO ─── -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <div class="cta-banner-titulo">Pronto para reservar?</div>
+    <p class="cta-banner-sub">Me conta quantos dias você tem e eu organizo tudo. Resposta rápida, sem enrolação.</p>
+    <a href="https://wa.me/5555981615722" class="cta-banner-btn" target="_blank">📲 Me chama no WhatsApp</a>
+  </div>
+</div>
+
+<!-- ─── CARROSSÉIS: DESTINO + DATAS ─── -->
+<section class="section section-dark">
+  <div class="section-header">
+    <div class="section-eyebrow">Destino e datas especiais</div>
+    <h2 class="section-title">Junho nas Missões tem muito a oferecer</h2>
+    <p class="section-sub">Dia dos Namorados, São João, meio de semana, história e agências.</p>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel-row">
+
+      <!-- Card 14: Dia dos Namorados -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Dia dos Namorados diferente esse ano.","sub":"Sem restaurante lotado, sem correria.","texto":"Que tal passar o Dia dos Namorados num lugar que vai ficar na memória pra sempre?"},
+        {"badge":"meio-rosa","titulo":"Pôr do sol nas Ruínas para dois.","sub":"Um cenário que nenhum jantar substitui.","texto":"Ver o sol descer sobre as pedras de 300 anos juntos é uma cena que nenhum restaurante consegue replicar."},
+        {"badge":"meio-rosa","titulo":"Quarto especial preparado pra vocês.","sub":"Decoração, champanhe e carinho.","texto":"A gente cuida dos detalhes pra você só precisar curtir o momento."},
+        {"badge":"meio-rosa","titulo":"Caminhar entre as Ruínas de mãos dadas.","sub":"300 anos de história ao redor de vocês.","texto":"Um cenário que nenhuma decoração de restaurante consegue replicar."},
+        {"badge":"cta","titulo":"Vagas limitadas para junho.","sub":"Não deixa pra última hora.","texto":"Me chama no WhatsApp ou no direct e garante a data."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index rosa">14</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Dia dos Namorados nas Missões — 12 de junho</div>
+            <span class="card-tag tag-namorados">Dia dos Namorados</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 15: Festa Junina -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"E se o São João desse ano fosse diferente?","sub":"Interior com história de 300 anos.","texto":"Festa Junina em cidade grande é palco. Aqui é tradição de verdade."},
+        {"badge":"meio-amarelo","titulo":"De manhã: Ruínas, Museu e Fonte.","sub":"Patrimônio Mundial da Humanidade.","texto":"A manhã nas Ruínas de junho é fria, silenciosa e linda. Nada de fila."},
+        {"badge":"meio-amarelo","titulo":"À tarde: benzimento da Dona Alzira.","sub":"Tradição de fé que emociona.","texto":"No meio da semana ela tem tempo pra cada um. Experiência que quem veio nunca esquece."},
+        {"badge":"meio-amarelo","titulo":"À noite: São João na região.","sub":"Quadrilha, fogueira e comida de verdade.","texto":"As festas juninas da região têm aquele sabor que a cidade não consegue copiar."},
+        {"badge":"cta","titulo":"Monta esse roteiro com a gente.","sub":"A pousada fica no centro de tudo.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index amarelo">15</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Festa Junina + Ruínas — o roteiro que ninguém está fazendo</div>
+            <span class="card-tag tag-junina">Festa Junina</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 16: Meio de semana -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Fim de semana tá caro e cheio.","sub":"Tem uma opção muito melhor.","texto":"Vir de segunda a quinta muda completamente a experiência nas Missões."},
+        {"badge":"meio","titulo":"Sem fila, sem pressa.","sub":"As Ruínas quase que só pra você.","texto":"No meio da semana você caminha no seu ritmo, sem turma atrapalhando a foto."},
+        {"badge":"meio","titulo":"Diária mais barata.","sub":"Mesma pousada, mesmo café, outro preço.","texto":"Condição especial pra quem tem flexibilidade de agenda."},
+        {"badge":"meio","titulo":"Benzimento sem pressa.","sub":"A experiência mais marcante das Missões.","texto":"No fim de semana a Dona Alzira fica sobrecarregada. No meio da semana você tem tempo de verdade com ela."},
+        {"badge":"cta","titulo":"Consulta a data e vem.","sub":"A gente confirma rápido.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index">16</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">3 motivos pra vir de segunda a quinta</div>
+            <span class="card-tag tag-pousada">Meio de semana</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="carousel-row">
+
+      <!-- Card 17: Curiosidade histórica -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Você sabia que tinha escola dentro das Ruínas?","sub":"Não é metáfora. Era colégio de verdade.","texto":"Salas de aula, recreio na praça, livros vindos da Europa. Século 17, aqui no sul do Brasil."},
+        {"badge":"meio","titulo":"Do neolítico para a sala de aula.","sub":"Jesuítas ensinaram a ler, escrever e calcular.","texto":"Povos indígenas que viviam no neolítico aprenderam ciências e letras em poucos anos."},
+        {"badge":"meio","titulo":"A praça era o recreio.","sub":"Crianças brincavam onde você vai caminhar.","texto":"Aquela grande praça que você vê hoje era o pátio de recreio do colégio no século 17."},
+        {"badge":"cta","titulo":"Vem conhecer com calma.","sub":"A pousada fica a 150 metros das Ruínas.","texto":"Me chama no WhatsApp ou no direct."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index verde">17</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">O colégio que existia dentro das Ruínas</div>
+            <span class="card-tag tag-historia">Curiosidade histórica</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 18: Agências -->
+      <div class="carousel-card" data-slides='[
+        {"badge":"capa","titulo":"Junho nas Missões tem demanda.","sub":"Dia dos Namorados + São João + feriados.","texto":"Três datas fortes num só mês. Oportunidade pra quem trabalha com turismo cultural."},
+        {"badge":"meio","titulo":"Único Patrimônio Mundial do sul.","sub":"Argumento de venda que vende sozinho.","texto":"UNESCO 1983. Não tem outro igual no sul do Brasil. Seu cliente não vai questionar."},
+        {"badge":"meio","titulo":"Confirmação rápida e comissão garantida.","sub":"RS, SC, PR e SP.","texto":"Parceria direta, sem burocracia. A gente atende rápido."},
+        {"badge":"meio","titulo":"Capacidade para grupos.","sub":"Comitivas e grupos organizados.","texto":"Estrutura pra receber grupos com conforto e organização."},
+        {"badge":"cta","titulo":"Fala com a gente sobre parceria.","sub":"Atendimento direto, sem intermediário.","texto":"Me chama no WhatsApp e a gente conversa sobre condições."}
+      ]'>
+        <div class="card-head">
+          <div class="card-index marrom">18</div>
+          <div class="card-meta">
+            <div class="card-titulo-main">Para agências — por que incluir as Missões nos roteiros de junho</div>
+            <span class="card-tag tag-agencias">Agências / B2B</span>
+          </div>
+        </div>
+        <div class="slides-wrapper">
+          <div class="slides-track"></div>
+        </div>
+        <div class="slides-nav">
+          <div class="nav-dots"></div>
+          <div class="nav-arrows">
+            <button class="nav-arrow prev">&#8592;</button>
+            <button class="nav-arrow next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ─── -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <div class="cta-banner-titulo">A reserva é pelo WhatsApp.<br>A experiência é pra sempre.</div>
+    <p class="cta-banner-sub">150 metros do único Patrimônio Mundial do sul do Brasil. Me chama e a gente marca sua vinda.</p>
+    <a href="https://wa.me/5555981615722" class="cta-banner-btn" target="_blank">📲 (55) 98161-5722</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-txt">
+    Pousada das Missões · <span>@pousadadasmissoes</span> · pousadadasmissoes.com.br · Rua São Nicolau 601, São Miguel das Missões, RS
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.carousel-card').forEach(card => {
+  const slides = JSON.parse(card.dataset.slides);
+  const track = card.querySelector('.slides-track');
+  const dotsContainer = card.querySelector('.nav-dots');
+  const prevBtn = card.querySelector('.prev');
+  const nextBtn = card.querySelector('.next');
+  let current = 0;
+
+  const badgeClass = {
+    'capa': 'badge-capa',
+    'meio': 'badge-meio',
+    'cta': 'badge-cta',
+    'meio-rosa': 'badge-meio-rosa',
+    'meio-amarelo': 'badge-meio-amarelo'
+  };
+  const badgeLabel = {
+    'capa': 'Capa',
+    'meio': 'Página',
+    'cta': 'CTA',
+    'meio-rosa': 'Página',
+    'meio-amarelo': 'Página'
+  };
+
+  slides.forEach((s, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'slide';
+    const label = s.badge === 'meio' || s.badge === 'meio-rosa' || s.badge === 'meio-amarelo'
+      ? `${badgeLabel[s.badge]} ${i + 1}`
+      : badgeLabel[s.badge];
+    slide.innerHTML = `
+      <span class="slide-badge ${badgeClass[s.badge]}">${label}</span>
+      <div class="slide-titulo">${s.titulo}</div>
+      <div class="slide-sub">${s.sub}</div>
+      <div class="slide-texto">${s.texto}</div>
+    `;
+    track.appendChild(slide);
+
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(idx) {
+    current = (idx + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsContainer.querySelectorAll('.nav-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+});
+</script>
+</body>
+</html>
